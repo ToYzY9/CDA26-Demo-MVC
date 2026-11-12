@@ -21,20 +21,20 @@ class ControllerAccueil {
     /**
      * Get the value of model
      *
-     * @return ModeAgent
+     * @return ModelAgent
      */
-    public function getModel(): ModeAgent {
+    public function getModel(): ModelAgent {
         return $this->model;
     }
 
     /**
      * Set the value of model
      *
-     * @param ModeAgent $model
+     * @param ModelAgent $model
      *
      * @return self
      */
-    public function setModel(ModeAgent $model): self {
+    public function setModel(ModelAgent $model): self {
         $this->model = $model;
         return $this;
     }
