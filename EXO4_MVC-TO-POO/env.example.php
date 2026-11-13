@@ -1,0 +1,6 @@
+<?php
+$_ENV['DB_SERVER'];
+$_ENV['DB_USERNAME'];
+$_ENV['DB_PASSWORD'];
+$_ENV['DB_NAME'];
+
