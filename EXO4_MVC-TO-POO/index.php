@@ -3,22 +3,18 @@
 // s'occupe de la logique pour l'affichage de la liste des agents
 
 //import des ressources
-include './model/modelAgent.php';
-include './view/viewAccueil.php';
+include './Models/Manager/DatabaseManager.php';
+include './Models/Repository/AgentRepository.php';
+include './Views/ViewAccueil.php';
+include './Controllers/AccueilController.php';
 
-function render(){
-    //appeler le modèle pour récupérer la liste des agents
-    $data = findAll();
 
-    //Vérifier la nature de $data (tableau ou chaîne de caractère)
-    if(gettype($data) == "array"){
-        //J'envoie les données à la view
-        display($data);
-    }else{
-        //J'envoie le message d'erreur à la view
-        display([],$data);
-    }
-}
 
-render();
 
+// $model = new AgentRepository(new DatabaseManager($_ENV['DB_SERVER'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']));
+$dbManager = new DatabaseManager('localhost', 'root', '', 'agent_manager');
+$agentRepository = new AgentRepository($dbManager);
+$view = new ViewAccueil();
+
+$accueilController = new AccueilController($agentRepository,$view);
+$accueilController->render();
