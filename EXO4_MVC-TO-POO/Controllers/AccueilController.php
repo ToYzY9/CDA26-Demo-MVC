@@ -13,8 +13,6 @@ class AccueilController {
         //appeler le modèle pour récupérer la liste des agents
         $data = $this->agentRepo->findAllAgent();
 
-        // echo($data);die();
-    
         //Vérifier la nature de $data (tableau ou chaîne de caractère)
         if(gettype($data) == "array"){
             //J'envoie les données à la view
